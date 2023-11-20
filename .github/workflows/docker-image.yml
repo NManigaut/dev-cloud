@@ -11,8 +11,8 @@ jobs:
     steps:
     - name: Debug
       run: |
-        echo "ACR_HOST: ${{ env.ACR_HOST }}"
-        echo "ACR_USER: ${{ env.ACR_USER }}"
+        echo "ACR_HOST: ${{ vars.ACR_HOST }}"
+        echo "ACR_USER: ${{ vars.ACR_USER }}"
         echo "ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}"
     - uses: actions/checkout@v3 
     - name: Log in to the Container registry
