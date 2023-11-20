@@ -9,9 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Log in to the Container registry
+    - name: checkout
+      uses: actions/checkout@v3 
+    - name: check log
       run: echo ${{ secrets.ACR_PASSWORD }} | docker login ${{ env.ACR_HOST }} -u ${{ env.ACR_USER }} --password-stdin
+    - name: Log in to the Container registry
       uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
       with:
         registry: ${{ vars.ACR_HOST }}
