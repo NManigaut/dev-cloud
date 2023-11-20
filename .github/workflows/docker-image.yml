@@ -11,6 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Log in to the Container registry
+      run: echo ${{ secrets.ACR_PASSWORD }} | docker login ${{ env.ACR_HOST }} -u ${{ env.ACR_USER }} --password-stdin
       uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
       with:
         registry: ${{ vars.ACR_HOST }}
